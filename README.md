@@ -1,30 +1,28 @@
 # Task Manager API (FastAPI)
 
-A simple REST API built using Python and FastAPI.
+A simple REST API built with Python and FastAPI.
 
 ## Features
 - Create tasks
 - View tasks
 - Mark tasks as complete
 - Delete tasks
-- RESTful API architecture
+- REST API structure
+- Basic input validation
 
 ## Tech Stack
 - Python
 - FastAPI
 - Uvicorn
+- Pydantic
 
 ## API Endpoints
+- GET /tasks
+- POST /tasks
+- PUT /tasks/{id}
+- DELETE /tasks/{id}
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | /tasks | Retrieve all tasks |
-| POST | /tasks | Create a task |
-| PUT | /tasks/{id} | Mark task as complete |
-| DELETE | /tasks/{id} | Delete a task |
-
-## Run Locally
-
+## Run Project
 ```bash
 uvicorn main:app --reload
 ```
