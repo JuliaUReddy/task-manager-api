@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -6,6 +7,12 @@ tasks = []
 task_id_counter = 1
 
 
+# ---------- MODEL ----------
+class Task(BaseModel):
+    name: str
+
+
+# ---------- ROUTES ----------
 @app.get("/")
 def home():
     return {"message": "Task Manager API is running"}
@@ -17,12 +24,12 @@ def get_tasks():
 
 
 @app.post("/tasks")
-def create_task(task: dict):
+def create_task(task: Task):
     global task_id_counter
 
     new_task = {
         "id": task_id_counter,
-        "name": task["name"],
+        "name": task.name,
         "done": False
     }
 
